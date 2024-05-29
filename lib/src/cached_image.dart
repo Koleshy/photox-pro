@@ -1,20 +1,22 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-class CachedImage extends StatelessWidget {
+class CachedImageX extends StatelessWidget {
 
   final String url;
+  final BoxFit? fit;
 
-  const CachedImage({
+  const CachedImageX({
     super.key,
-    required this.url
+    required this.url,
+    this.fit = BoxFit.cover
   });
 
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
       imageUrl: url,
-      fit: BoxFit.cover,
+      fit: fit,
       progressIndicatorBuilder: (context, url, downloadProgress) =>
         Padding(
           padding: const EdgeInsets.all(12.0),

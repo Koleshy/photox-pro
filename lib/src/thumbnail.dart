@@ -26,9 +26,12 @@ class PhotoxThumbnail extends StatelessWidget {
         onTap: onTap,
         child: Hero(
           tag: item.id,
-          child: item.isAsset
-              ? Image.asset(item.resource)
-              : CachedImage(url: item.resource),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(6),
+            child: item.isAsset
+                ? Image.asset(item.resource, fit: BoxFit.cover)
+                : CachedImageX(url: item.resource),
+          ),
         ),
       ),
     );
