@@ -10,9 +10,10 @@ For general information about developing packages, see the Dart guide for
 and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
-# PhotoX
+# PhotoX_Pro
 
 An all-in-one solution for displaying interactive images
+(I just added some additional features)
 
 <img src="https://user-images.githubusercontent.com/70937274/216778063-619e86a5-a512-4cf0-af08-6bc35eb75bf6.gif" height="434" width="200">&nbsp;&nbsp;&nbsp;<img src="https://user-images.githubusercontent.com/70937274/216778074-3660e543-92a7-48b8-a8c7-65d181eb609e.gif" height="434" width="200">
 ## Features
@@ -24,15 +25,15 @@ An all-in-one solution for displaying interactive images
 
 ## Getting started
 
-Add `photox` as a dependency in your pubspec.yaml file
+Add `photox_pro` as a dependency in your pubspec.yaml file
 
 ```
-flutter pub add photox
+flutter pub add photox_pro
 ```
 
 Import PhotoX:
 ```dart
-import 'package:photox/photox.dart';
+import 'package:photox_pro/photox_pro.dart';
 ```
 
 ## Usage

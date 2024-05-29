@@ -1,4 +1,4 @@
-library photox;
+library photox_pro;
 
 export 'src/photox.dart' show PhotoX;
 export 'src/item.dart' show PhotoXItem;

@@ -1,23 +1,23 @@
-name: photox
+name: photox_pro
 description: An all-in-one solution for displaying interactive images.
-version: 0.2.0
-homepage: https://github.com/tuoku/photox
+version: 0.2.1
+homepage: https://github.com/Koleshy/photox-pro
 
 environment:
   sdk: '>=2.19.0 <3.0.0'
   flutter: ">=1.17.0"
 
 dependencies:
-  cached_network_image: ^3.2.3
-  collection: ^1.17.0
+  cached_network_image: ^3.3.1
+  collection: ^1.18.0
   flutter:
     sdk: flutter
-  photo_view: ^0.14.0
+  photo_view: ^0.15.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^4.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

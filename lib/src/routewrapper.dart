@@ -2,8 +2,8 @@ import 'dart:math';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:photox/src/dismissmode.dart';
-import 'package:photox/src/item.dart';
+import 'package:photox_pro/src/dismissmode.dart';
+import 'package:photox_pro/src/item.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 

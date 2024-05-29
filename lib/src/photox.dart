@@ -1,9 +1,9 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:photox/src/page_indicator.dart';
-import 'package:photox/src/routewrapper.dart';
-import 'package:photox/src/thumbnail.dart';
-import 'package:photox/src/dismissmode.dart';
+import 'package:photox_pro/src/page_indicator.dart';
+import 'package:photox_pro/src/routewrapper.dart';
+import 'package:photox_pro/src/thumbnail.dart';
+import 'package:photox_pro/src/dismissmode.dart';
 
 import 'item.dart';
 
@@ -20,6 +20,9 @@ class PhotoX extends StatelessWidget {
       this.pageIndicatorInactiveColor,
       this.fullscreenGalleryAppBarLeadingWidget,
       this.fullscreenGalleryTitleTextStyle,
+      this.viewportFraction = 1.0,
+      this.thumbnailMargin,
+      this.thumbnailPadding,
       super.key})
       : assert(!(dismissMode == DismissMode.swipeAny && items.length >= 2),
             "Must provide only 1 item when using DismissMode.swipeAny");
@@ -35,8 +38,12 @@ class PhotoX extends StatelessWidget {
   final Color? pageIndicatorBackgroundColor;
   final TextStyle? fullscreenGalleryTitleTextStyle;
   final Widget? fullscreenGalleryAppBarLeadingWidget;
+  final double viewportFraction;
+  final EdgeInsetsGeometry? thumbnailMargin;
+  final EdgeInsetsGeometry? thumbnailPadding;
 
-  final _pc = PageController();
+  late final _pc = PageController(viewportFraction: viewportFraction);
+
   @override
   Widget build(BuildContext context) {
     final pageNotifier = ValueNotifier<int>(0);
@@ -53,24 +60,27 @@ class PhotoX extends StatelessWidget {
           controller: _pc,
           children: [
             ...items.mapIndexed((i, e) =>
-                PhotoxThumbnail(item: e, onTap: () => open(context, i)))
+                PhotoxThumbnail(
+                  item: e,
+                  onTap: () => open(context, i),
+                  thumbnailMargin: thumbnailMargin,
+                  thumbnailPadding: thumbnailPadding,
+                )
+              )
           ],
         ),
         if (items.length > 1 && showPageIndicator)
           Align(
             alignment: pageIndicatorAlignment ??
-                Alignment(
-                    Alignment.bottomCenter.x, Alignment.bottomCenter.y - 0.03),
+                Alignment(Alignment.bottomCenter.x, Alignment.bottomCenter.y - 0.03),
             child: ValueListenableBuilder<int>(
               valueListenable: pageNotifier,
               builder: (context, currentPage, _) {
                 return PageIndicator(
                   activeColor: pageIndicatorActiveColor ?? Colors.white,
                   inactiveColor: pageIndicatorInactiveColor ?? Colors.grey,
-                  backgroundColor: pageIndicatorBackgroundColor ??
-                      Colors.black.withOpacity(0.4),
-                  bubblePadding:
-                      pageIndicatorBubblePadding ?? const EdgeInsets.all(5),
+                  backgroundColor: pageIndicatorBackgroundColor ?? Colors.black.withOpacity(0.4),
+                  bubblePadding: pageIndicatorBubblePadding ?? const EdgeInsets.all(5),
                   bubbleRadius: pageIndicatorBubbleRadius ?? 10,
                   length: items.length,
                   position: currentPage,
