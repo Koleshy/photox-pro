@@ -1,6 +1,6 @@
 name: photox_pro
 description: An all-in-one solution for displaying interactive images.
-version: 0.2.2
+version: 0.2.3
 homepage: https://github.com/Koleshy/photox-pro
 
 environment:
@@ -55,3 +55,12 @@ flutter:
   #
   # For details regarding fonts in packages, see
   # https://flutter.dev/custom-fonts/#from-packages
+
+# This package supports all platforms listed below.
+platforms:
+  android:
+  ios:
+  linux:
+  macos:
+  web:
+  windows:
