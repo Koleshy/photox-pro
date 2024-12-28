@@ -47,6 +47,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 viewportFraction: 0.8,
                 //thumbnailMargin: const EdgeInsets.symmetric(horizontal: 10.0),
                 thumbnailPadding: const EdgeInsets.symmetric(horizontal: 10.0),
+                placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
+                errorImage: (context, url, error) => const Icon(Icons.error, color: Colors.red),
                 items: [
                   PhotoXItem(
                     id: "1",

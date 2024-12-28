@@ -1,6 +1,6 @@
 name: photox_pro
 description: An all-in-one solution for displaying interactive images.
-version: 0.2.3
+version: 0.2.6
 homepage: https://github.com/Koleshy/photox-pro
 
 environment:

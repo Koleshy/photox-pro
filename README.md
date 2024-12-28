@@ -13,7 +13,7 @@ and the Flutter guide for
 # PhotoX_Pro
 
 An all-in-one solution for displaying interactive images
-(I just added some additional features)
+(Added new features)
 
 <img src="https://user-images.githubusercontent.com/70937274/216778063-619e86a5-a512-4cf0-af08-6bc35eb75bf6.gif" height="434" width="200">&nbsp;&nbsp;&nbsp;<img src="https://user-images.githubusercontent.com/70937274/216778074-3660e543-92a7-48b8-a8c7-65d181eb609e.gif" height="434" width="200">
 ## Features
@@ -46,11 +46,24 @@ Widget build(BuildContext context) {
     height: 400,
     width: 400,
     child: PhotoX(
+      dismissMode: DismissMode.swipeVertical,
+      placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
       items: [
         PhotoXItem(
-          id: "1", resource: "assets/img1.jpg", isAsset: true),
+            id: "1",
+            resource: "assets/img1.jpeg",
+            isAsset: true
+        ),
         PhotoXItem(
-          id: "2", resource: "assets/img2.jpeg", isAsset: true),
+            id: "2",
+            resource: "https://picsum.photos/1020/1020",
+            isAsset: false
+        ),
+        PhotoXItem(
+            id: "3",
+            resource: "https://picsum.photos/1021/1021",
+            isAsset: false
+        ),
       ]
     )
   );

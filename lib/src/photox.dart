@@ -23,6 +23,8 @@ class PhotoX extends StatelessWidget {
       this.viewportFraction = 1.0,
       this.thumbnailMargin,
       this.thumbnailPadding,
+      this.placeholder,
+      this.errorImage,
       super.key})
       : assert(!(dismissMode == DismissMode.swipeAny && items.length >= 2),
             "Must provide only 1 item when using DismissMode.swipeAny");
@@ -41,6 +43,8 @@ class PhotoX extends StatelessWidget {
   final double viewportFraction;
   final EdgeInsetsGeometry? thumbnailMargin;
   final EdgeInsetsGeometry? thumbnailPadding;
+  final Widget Function(BuildContext, String)? placeholder;
+  final Widget Function(BuildContext, String, Object)? errorImage;
 
   late final _pc = PageController(viewportFraction: viewportFraction);
 
@@ -65,6 +69,8 @@ class PhotoX extends StatelessWidget {
                   onTap: () => open(context, i),
                   thumbnailMargin: thumbnailMargin,
                   thumbnailPadding: thumbnailPadding,
+                  placeholder: placeholder,
+                  errorImage: errorImage
                 )
               )
           ],

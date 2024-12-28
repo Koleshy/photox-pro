@@ -5,11 +5,15 @@ class CachedImageX extends StatelessWidget {
 
   final String url;
   final BoxFit? fit;
+  final Widget Function(BuildContext, String)? placeholder;
+  final Widget Function(BuildContext, String, Object)? errorImage;
 
   const CachedImageX({
     super.key,
     required this.url,
-    this.fit = BoxFit.cover
+    this.fit = BoxFit.cover,
+    this.placeholder,
+    this.errorImage
   });
 
   @override
@@ -17,15 +21,8 @@ class CachedImageX extends StatelessWidget {
     return CachedNetworkImage(
       imageUrl: url,
       fit: fit,
-      progressIndicatorBuilder: (context, url, downloadProgress) =>
-        Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: CircularProgressIndicator(
-            value: downloadProgress.progress,
-            strokeWidth: 5
-          ),
-        ),
-      errorWidget: (context, url, error) => const Icon(Icons.error)
+      placeholder: placeholder,
+      errorWidget: errorImage ?? (context, url, error) => const Icon(Icons.error, color: Colors.red)
     );
   }
 }
